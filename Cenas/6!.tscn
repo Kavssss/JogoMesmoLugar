@@ -298,12 +298,12 @@ polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
 [node name="Spike41" type="CollisionPolygon2D" parent="Spikes"]
 position = Vector2( 640, 448 )
 rotation = 1.5708
-polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+polygon = PoolVector2Array( 32, 32, 64, 48, 32.0002, 62.9999 )
 
 [node name="Spike42" type="CollisionPolygon2D" parent="Spikes"]
 position = Vector2( 832, 448 )
 rotation = 1.5708
-polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+polygon = PoolVector2Array( 32.0001, 32.9999, 64, 48, 32, 64 )
 
 [node name="Laser" type="StaticBody2D" parent="."]
 collision_layer = 256
@@ -314,6 +314,7 @@ script = ExtResource( 1 )
 position = Vector2( 1216, 288 )
 frames = SubResource( 7 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 

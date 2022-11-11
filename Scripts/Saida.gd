@@ -17,3 +17,15 @@ func _on_Saida_body_entered(body):
 		get_tree().change_scene("res://Cenas/8-MaisForca.tscn")
 	elif get_tree().get_current_scene().get_name() == "8-MaisForca":
 		get_tree().change_scene("res://Cenas/9-Lua.tscn")
+	elif get_tree().get_current_scene().get_name() == "9-Lua":
+		get_tree().change_scene("res://Cenas/10-Sozinho.tscn")
+	elif get_tree().get_current_scene().get_name() == "10-Sozinho":
+		get_tree().change_scene("res://Cenas/11-Sozinho.tscn")
+	elif get_tree().get_current_scene().get_name() == "11-Sozinho":
+		get_tree().change_scene("res://Cenas/12-SigaORato.tscn")
+	elif get_tree().get_current_scene().get_name() == "12-SigaORato":
+		get_tree().change_scene("res://Cenas/13-PorcoAranha.tscn")
+	elif get_tree().get_current_scene().get_name() == "13-PorcoAranha":
+		get_tree().change_scene("res://Cenas/14-AlgoMudou.tscn")
+	elif get_tree().get_current_scene().get_name() == "14-AlgoMudou":
+		get_tree().change_scene("res://Cenas/15-Depressa.tscn")

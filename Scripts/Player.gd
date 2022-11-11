@@ -34,10 +34,6 @@ func _physics_process(_delta):
 		morreu = false
 
 	motion = move_and_slide(motion, UP)
-	queda()
-
-func queda():
-	return motion.y
 
 func _on_Foot_body_entered(body):
 	if body.has_method("pressionado"):

@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/PlayerSozinho.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/player/walk_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/player/walk_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/player/walk_4.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/player/walk_3.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 15.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 4.75, 1 )
+
+[node name="PlayerSozinho" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 32785
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.336842, 0.363636 )
+frames = SubResource( 9 )
+animation = "idle"
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 32 )
+shape = SubResource( 10 )
+
+[node name="Limit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limit"]
+position = Vector2( 16, 32 )
+shape = SubResource( 11 )
+
+[node name="Foot" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Down" type="CollisionShape2D" parent="Foot"]
+position = Vector2( 16, 63 )
+shape = SubResource( 12 )
+
+[node name="Up" type="CollisionShape2D" parent="Foot"]
+position = Vector2( 16, 1 )
+shape = SubResource( 12 )
+
+[connection signal="body_entered" from="Limit" to="." method="_on_Limit_body_entered"]
+[connection signal="body_entered" from="Foot" to="." method="_on_Foot_body_entered"]
+[connection signal="body_exited" from="Foot" to="." method="_on_Foot_body_exited"]

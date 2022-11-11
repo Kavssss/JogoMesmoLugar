@@ -8,25 +8,29 @@ var cont = 0
 func _ready():
 	position.x = 30
 	position.y = 380
+	get_viewport().warp_mouse(Vector2(40, 410))
 
 func _physics_process(_delta):
 	motion.y += 20
 
-	if Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A):
-		motion.x = 170
+	if get_viewport().get_mouse_position().x > position.x + 16:
+		motion.x = 100
 		$Sprite.play("walk")
 		$Sprite.flip_h = false
-	elif Input.is_action_pressed("ui_up") or Input.is_key_pressed(KEY_W):
-		motion.x = -170
+	elif get_viewport().get_mouse_position().x < position.x - 16:
+		motion.x = -100
 		$Sprite.play("walk")
 		$Sprite.flip_h = true
 	else:
 		motion.x = 0
 		$Sprite.play("idle")
 
-	if is_on_floor():
-		if Input.is_action_pressed("ui_right") or Input.is_key_pressed(KEY_D):
-			motion.y = -520
+	if get_viewport().get_mouse_position().y > position.y + 16:
+		motion.y = 70
+	elif get_viewport().get_mouse_position().y < position.y:
+		motion.y = -70
+	else:
+		motion.y = 0
 
 	if morreu:
 		position.x = 30
@@ -44,4 +48,4 @@ func _on_Foot_body_exited(body):
 		body.livre()
 
 func _on_Limit_body_entered(body):
-	get_node("../DeadConfusao").morte()
+	get_node("../DeadRato").morte()

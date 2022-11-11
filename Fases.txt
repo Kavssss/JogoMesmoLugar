@@ -1,0 +1,15 @@
+1  - Simples
+2  - Espere
+3  - Cadê o botão?
+4  - Volte
+5  - Preciso de espaço
+6  - !
+7  - Confusão
+8  - Mais força
+9  - Lua
+10 - Sozinho?
+11 - Encontre o X
+12 - Siga o rato
+13 - Porco-Aranha
+14 - Algo mudou?
+15 - Rápido

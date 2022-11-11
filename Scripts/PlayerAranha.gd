@@ -10,23 +10,18 @@ func _ready():
 	position.y = 380
 
 func _physics_process(_delta):
-	motion.y += 20
+	$Sprite.play("walk")
+	motion.x = 70
 
-	if Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A):
-		motion.x = 170
-		$Sprite.play("walk")
-		$Sprite.flip_h = false
-	elif Input.is_action_pressed("ui_up") or Input.is_key_pressed(KEY_W):
-		motion.x = -170
-		$Sprite.play("walk")
-		$Sprite.flip_h = true
+	if Input.is_action_pressed("ui_up") or Input.is_key_pressed(KEY_W):
+		$Sprite.flip_v = true
+	elif Input.is_action_pressed("ui_down") or Input.is_key_pressed(KEY_S):
+		$Sprite.flip_v = false
+	
+	if $Sprite.flip_v:
+		motion.y -= 15
 	else:
-		motion.x = 0
-		$Sprite.play("idle")
-
-	if is_on_floor():
-		if Input.is_action_pressed("ui_right") or Input.is_key_pressed(KEY_D):
-			motion.y = -520
+		motion.y += 15
 
 	if morreu:
 		position.x = 30
@@ -44,4 +39,4 @@ func _on_Foot_body_exited(body):
 		body.livre()
 
 func _on_Limit_body_entered(body):
-	get_node("../DeadConfusao").morte()
+	get_node("../DeadAranha").morte()
