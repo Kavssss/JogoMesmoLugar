@@ -1,0 +1,517 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Sprites/scenario/background.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/menu/plataformsNiveis.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/menu/doorOpening3.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/menu/doorClosing2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/menu/doorClosed2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/menu/doorOpened2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/menu/doorOpening2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/menu/doorOpening1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/menu/doorClosing3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/menu/doorClosing1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/menu/doorOpened1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/menu/doorClosed1.png" type="Texture" id=12]
+[ext_resource path="res://Cenas/PlayerMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/Portas.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Niveis.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/scenario/laser_closed_1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/scenario/laser_closed_2.png" type="Texture" id=17]
+[ext_resource path="res://Cenas/DeadMenu.tscn" type="PackedScene" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "closing",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "opening",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "closed",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 72 )
+
+[node name="Niveis" type="Node2D"]
+script = ExtResource( 15 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Plataforms" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Plataforms"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 0, 0, 1376, 0, 1376, 512, 1152, 512, 1152, 528, 1120, 528, 1120, 512, 1024, 512, 1024, 528, 992, 528, 992, 512, 896, 512, 896, 528, 864, 528, 864, 512, 768, 512, 768, 528, 736, 528, 736, 512, 640, 512, 640, 528, 608, 528, 608, 512, 512, 512, 512, 528, 480, 528, 480, 512, 384, 512, 384, 528, 352, 528, 352, 512, 256, 512, 256, 528, 224, 528, 224, 512, 192, 480, 224, 448, 1216, 448, 1216, 416, 1248, 416, 1248, 384, 1280, 384, 1280, 64, 1024, 64, 1024, 80, 992, 80, 992, 64, 896, 64, 896, 80, 864, 80, 864, 64, 768, 64, 768, 80, 736, 80, 736, 64, 640, 64, 640, 80, 608, 80, 608, 64, 512, 64, 512, 80, 480, 80, 480, 64, 384, 64, 384, 80, 352, 80, 352, 64, 0, 64 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 0, 224, 1152, 224, 1184, 256, 1152, 288, 1152, 304, 1120, 304, 1120, 288, 1024, 288, 1024, 304, 992, 304, 992, 288, 896, 288, 896, 304, 864, 304, 864, 288, 768, 288, 768, 304, 736, 304, 736, 288, 640, 288, 640, 304, 608, 304, 608, 288, 512, 288, 512, 304, 480, 304, 480, 288, 384, 288, 384, 304, 352, 304, 352, 288, 96, 288, 96, 608, 128, 608, 128, 640, 160, 640, 160, 672, 1376, 672, 1376, 768, 0, 768 )
+
+[node name="Portas" type="Node" parent="."]
+script = ExtResource( 14 )
+
+[node name="Porta1" type="Area2D" parent="Portas"]
+position = Vector2( 272, 128 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta1"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta1"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta2" type="Area2D" parent="Portas"]
+position = Vector2( 400, 128 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta2"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta2"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta3" type="Area2D" parent="Portas"]
+position = Vector2( 528, 128 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta3"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta3"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta4" type="Area2D" parent="Portas"]
+position = Vector2( 656, 128 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta4"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta4"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta5" type="Area2D" parent="Portas"]
+position = Vector2( 784, 128 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta5"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta5"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta6" type="Area2D" parent="Portas"]
+position = Vector2( 912, 128 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta6"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta6"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta7" type="Area2D" parent="Portas"]
+position = Vector2( 1040, 128 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta7"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta7"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta8" type="Area2D" parent="Portas"]
+position = Vector2( 1040, 352 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta8"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta8"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta9" type="Area2D" parent="Portas"]
+position = Vector2( 912, 352 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta9"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta9"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta10" type="Area2D" parent="Portas"]
+position = Vector2( 784, 352 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta10"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta10"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta11" type="Area2D" parent="Portas"]
+position = Vector2( 656, 352 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta11"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta11"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta12" type="Area2D" parent="Portas"]
+position = Vector2( 528, 352 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta12"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta12"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta13" type="Area2D" parent="Portas"]
+position = Vector2( 400, 352 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta13"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta13"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta14" type="Area2D" parent="Portas"]
+position = Vector2( 272, 352 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta14"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta14"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta15" type="Area2D" parent="Portas"]
+position = Vector2( 272, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta15"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta15"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta16" type="Area2D" parent="Portas"]
+position = Vector2( 400, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta16"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta16"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta17" type="Area2D" parent="Portas"]
+position = Vector2( 528, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta17"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta17"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta18" type="Area2D" parent="Portas"]
+position = Vector2( 656, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta18"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta18"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta19" type="Area2D" parent="Portas"]
+position = Vector2( 784, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta19"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta19"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta20" type="Area2D" parent="Portas"]
+position = Vector2( 912, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta20"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta20"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta21" type="Area2D" parent="Portas"]
+position = Vector2( 1040, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta21"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta21"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Porta22" type="Area2D" parent="Portas"]
+position = Vector2( 1168, 576 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Portas/Porta22"]
+frames = SubResource( 1 )
+animation = "closing"
+frame = 5
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portas/Porta22"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Laser" type="StaticBody2D" parent="."]
+position = Vector2( 352, 288 )
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Laser"]
+frames = SubResource( 3 )
+animation = "closed"
+frame = 1
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
+position = Vector2( 16, 88 )
+shape = SubResource( 4 )
+
+[node name="DeadMenu" parent="." instance=ExtResource( 18 )]
+position = Vector2( 0, -64 )
+z_index = 1
+
+[node name="PlayerMenu" parent="." instance=ExtResource( 13 )]
+position = Vector2( 32, 160 )
+z_index = 1
+
+[connection signal="body_entered" from="Portas/Porta1" to="Portas" method="_on_Porta1_body_entered"]
+[connection signal="body_exited" from="Portas/Porta1" to="Portas" method="_on_Porta1_body_exited"]

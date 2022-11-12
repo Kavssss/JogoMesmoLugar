@@ -31,7 +31,7 @@ extents = Vector2( 4.75, 1 )
 
 [node name="PlayerMenu" type="KinematicBody2D"]
 collision_layer = 0
-collision_mask = 32785
+collision_mask = 32913
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -41,7 +41,7 @@ __meta__ = {
 scale = Vector2( 0.561404, 0.533333 )
 frames = SubResource( 9 )
 animation = "walk"
-frame = 4
+frame = 2
 playing = true
 centered = false
 
@@ -57,5 +57,14 @@ collision_mask = 16
 position = Vector2( 16, 63 )
 shape = SubResource( 12 )
 
+[node name="Limit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limit"]
+position = Vector2( 16, 32 )
+shape = SubResource( 10 )
+
 [connection signal="body_entered" from="Foot" to="." method="_on_Foot_body_entered"]
 [connection signal="body_exited" from="Foot" to="." method="_on_Foot_body_exited"]
+[connection signal="body_entered" from="Limit" to="." method="_on_Limit_body_entered"]
