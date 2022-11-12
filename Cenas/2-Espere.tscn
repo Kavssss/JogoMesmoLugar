@@ -59,6 +59,10 @@ font_data = ExtResource( 4 )
 [node name="2-Espere" type="Node2D"]
 script = ExtResource( 5 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 17 )
 centered = false
@@ -353,4 +357,5 @@ position = Vector2( 0, -64 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, 320 )
 
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Saida" to="Saida" method="_on_Saida_body_entered"]

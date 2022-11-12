@@ -1,12 +1,12 @@
 extends Node2D
 
-var cont = 0
-
 func _physics_process(_delta):
 	if get_node("Botao").isPressed():
-		cont += 1
-		if(cont > 300):
-			get_node("Laser/Sprite").play("open")
-			get_node("Laser").desativaColisao()
+		if $Timer.is_stopped():
+			$Timer.start(0)
 	else:
-		cont = 0
+		$Timer.stop()
+
+func _on_Timer_timeout():
+	get_node("Laser/Sprite").play("open")
+	get_node("Laser").desativaColisao()
