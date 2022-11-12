@@ -2,9 +2,6 @@ extends StaticBody2D
 
 var btn = false
 
-func _ready():
-	pass
-
 func pressionado():
 	$Sprite.play("down")
 	btn = true

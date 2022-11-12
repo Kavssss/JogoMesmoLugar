@@ -1,6 +1,7 @@
 extends Area2D
 
+var aberto = false
+
 func _on_X_body_entered(body):
 	get_node("../Label").text = "11- Encontre o"
-	get_node("../Laser/Sprite").play("open")
-	get_node("../Laser").desativaColisao()
+	aberto = true

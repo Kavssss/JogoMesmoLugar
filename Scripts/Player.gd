@@ -44,4 +44,4 @@ func _on_Foot_body_exited(body):
 		body.livre()
 
 func _on_Limit_body_entered(body):
-	get_node("../Dead").morte()
+	get_node("../Dead").morte(body)
