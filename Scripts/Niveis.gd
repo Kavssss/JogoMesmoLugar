@@ -9,3 +9,4 @@ func _process(delta):
 	elif get_node("/root/Global").get("fase") == 2:
 		get_node("Laser").position = Vector2(posX + 128, posY)
 		
+		
