@@ -27,7 +27,7 @@ extents = Vector2( 64, 16 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 112, 16 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": true,
@@ -37,7 +37,7 @@ animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "open",
-"speed": 8.0
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -309,12 +309,15 @@ polygon = PoolVector2Array( 32.0001, 32.9999, 64, 48, 32, 64 )
 collision_layer = 256
 collision_mask = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="Laser"]
 position = Vector2( 1216, 288 )
-scale = Vector2( 1, 0.993789 )
-frames = SubResource( 7 )
+frames = SubResource( 12 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 

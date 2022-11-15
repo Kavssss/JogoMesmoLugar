@@ -1,4 +1,7 @@
 extends StaticBody2D
 
-func _ready():
-	pass
+func pressionado():
+	$Sprite.play("down")
+
+func livre():
+	$Sprite.play("up")

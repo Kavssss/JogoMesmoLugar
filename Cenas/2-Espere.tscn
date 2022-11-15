@@ -313,6 +313,9 @@ polygon = PoolVector2Array( 32.0001, 32.9999, 64, 48, 32, 64 )
 collision_layer = 256
 collision_mask = 0
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="Laser"]
 position = Vector2( 1216, 288 )
