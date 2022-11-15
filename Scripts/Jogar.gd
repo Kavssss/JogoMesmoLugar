@@ -5,7 +5,7 @@ var aberta = false
 func _physics_process(delta):
 	if aberta:
 		if Input.is_action_just_pressed("ui_accept"):
-			get_node("/root/Global").get("fase")
+			get_node("/root/Transition").fade_into("res://Cenas/" + get_node("/root/Global").nome_fase() + ".tscn")
 
 func _on_Jogar_body_entered(body):
 	aberta = true

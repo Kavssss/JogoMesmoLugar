@@ -5,7 +5,7 @@ var aberta = false
 func _physics_process(delta):
 	if aberta:
 		if Input.is_action_just_pressed("ui_accept"):
-			get_tree().change_scene("res://Cenas/Niveis.tscn")
+			get_node("/root/Transition").fade_into("res://Cenas/Niveis.tscn")
 
 func _on_Niveis_body_entered(body):
 	aberta = true
