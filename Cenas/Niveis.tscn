@@ -500,6 +500,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Laser"]
 frames = SubResource( 3 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 

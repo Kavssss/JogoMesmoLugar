@@ -6,7 +6,7 @@ var porta = ""
 func _physics_process(_delta):
 	if aberta:
 		if Input.is_action_just_pressed("ui_accept"):
-			get_tree().change_scene(porta)
+			get_node("/root/Transition").fade_into(porta)
 
 func _on_Porta1_body_entered(body):
 	aberta = true

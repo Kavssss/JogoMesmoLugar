@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
@@ -14,10 +14,12 @@
 [ext_resource path="res://Sprites/scenario/laser_closed_2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/scenario/laser_open_2.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/scenario/laser_closed_1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/scenario/background.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/scenario/background_fases.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/scenario/laser_open_5.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/11-EncontreOX.gd" type="Script" id=17]
 [ext_resource path="res://Scripts/X.gd" type="Script" id=18]
+[ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=20]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -59,6 +61,11 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 12, 13 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 18
+use_filter = true
+font_data = ExtResource( 20 )
 
 [node name="11-EncontreOX" type="Node2D"]
 script = ExtResource( 17 )
@@ -341,7 +348,7 @@ script = ExtResource( 2 )
 position = Vector2( 1360, 368 )
 shape = SubResource( 10 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Titulo" type="Label" parent="."]
 margin_left = 96.0
 margin_top = 64.0
 margin_right = 259.0
@@ -351,12 +358,6 @@ text = "11- Encontre o X"
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
-
-[node name="Dead" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, -64 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 32, 320 )
 
 [node name="X" type="Area2D" parent="."]
 position = Vector2( 331, 70 )
@@ -370,6 +371,25 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="X"]
 position = Vector2( 12, 13 )
 shape = SubResource( 12 )
+
+[node name="Botao_Dica" parent="." instance=ExtResource( 19 )]
+
+[node name="Dica" type="Label" parent="."]
+margin_left = 512.0
+margin_top = 64.0
+margin_right = 864.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 14 )
+text = "Está bem ali <-"
+align = 1
+valign = 1
+percent_visible = 0.0
+
+[node name="Dead" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -64 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 32, 320 )
 
 [connection signal="body_entered" from="Saida" to="Saida" method="_on_Saida_body_entered"]
 [connection signal="body_entered" from="X" to="X" method="_on_X_body_entered"]

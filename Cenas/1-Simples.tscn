@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
@@ -14,9 +14,11 @@
 [ext_resource path="res://Sprites/scenario/laser_closed_2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/scenario/laser_open_2.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/scenario/laser_closed_1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/scenario/background.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/scenario/background_fases.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/scenario/laser_open_5.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/1-Simples.gd" type="Script" id=17]
+[ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=20]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -55,6 +57,12 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 20 )
 
 [node name="1-Simples" type="Node2D"]
 script = ExtResource( 17 )
@@ -317,7 +325,6 @@ position = Vector2( 1216, 288 )
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
-frame = 1
 playing = true
 centered = false
 
@@ -340,7 +347,7 @@ script = ExtResource( 2 )
 position = Vector2( 1360, 368 )
 shape = SubResource( 10 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Titulo" type="Label" parent="."]
 margin_left = 96.0
 margin_top = 64.0
 margin_right = 259.0
@@ -350,6 +357,20 @@ text = "1- Simples	"
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
+
+[node name="Botao_Dica" parent="." instance=ExtResource( 18 )]
+
+[node name="Dica" type="Label" parent="."]
+margin_left = 512.0
+margin_top = 64.0
+margin_right = 864.0
+margin_bottom = 96.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "Sério?"
+align = 1
+valign = 1
+percent_visible = 0.0
 
 [node name="Dead" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -64 )

@@ -1,5 +1,6 @@
 extends Node2D
 
+var dicas = 3
 var posicao = Vector2(32, 544)
 var fase = 1
 var nomes = ["1-Simples", "2-Espere", "3-CadeOBotao", "4-Volte", "5-PrecisoDeEspaco", "6!", 
@@ -14,3 +15,7 @@ func nome_fase():
 
 func posicao_menu(x, y):
 	posicao = Vector2(x, y)
+
+func _input(event):
+	if Input.is_key_pressed(KEY_P):
+		get_tree().paused = !get_tree().paused
