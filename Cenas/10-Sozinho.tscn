@@ -317,7 +317,6 @@ __meta__ = {
 position = Vector2( 1216, 288 )
 frames = SubResource( 12 )
 animation = "closed"
-frame = 1
 playing = true
 centered = false
 

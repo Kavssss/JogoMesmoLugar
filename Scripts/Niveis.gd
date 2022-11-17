@@ -46,8 +46,11 @@ func _process(delta):
 		get_node("Laser").position = Vector2(posX + (128 * 5), posY + (224 * 2))
 	elif get_node("/root/Global").get("fase") == 21:
 		get_node("Laser").position = Vector2(posX + (128 * 6), posY + (224 * 2))
-	elif get_node("/root/Global").get("fase") == 22:
-		get_node("Laser").position = Vector2(posX + (128 * 7), posY + (224 * 2))
+	else:
+		get_node("Laser").hide()
+		get_node("Laser/CollisionShape2D").disabled = true
 
 func _on_Voltar_body_entered(body):
 	get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
+	get_node("/root/Global").posicao_menu(576, 544)
+	

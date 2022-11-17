@@ -18,7 +18,12 @@ func _physics_process(_delta):
 
 	motion = move_and_slide(motion, UP)
 
-func morte():
+func morte(body):
+	if body.get_name() == "Laser":
+		$Sprite.set_texture(preload("res://Sprites/New player/deadLaser.png"))
+	else:
+		$Sprite.set_texture(preload("res://Sprites/New player/dead.png"))
+
 	position.x = get_node("../PlayerSozinho").position.x
 	position.y = get_node("../PlayerSozinho").position.y
 	get_node("../PlayerSozinho").set("morreu", true)

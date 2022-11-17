@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Dejavu"
-run/main_scene="res://Cenas/1-Simples.tscn"
+run/main_scene="res://Cenas/Inicial.tscn"
 
 [autoload]
 
@@ -23,6 +23,7 @@ Transition="*res://Cenas/Transition.tscn"
 window/size/width=1360
 window/size/height=768
 window/size/resizable=false
+window/size/fullscreen=true
 
 [gui]
 
