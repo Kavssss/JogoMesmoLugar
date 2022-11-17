@@ -8,7 +8,4 @@ func _physics_process(_delta):
 		get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
 		get_node("/root/Global").posicao_menu(352, 544)
 
-	if get_node("Botao_Dica").isPressed():
-		if get_node("/root/Global").dicas > 0:
-			get_node("/root/Global").dicas -= 1
-			$Dica.visible_characters = -1
+	$Dica.visible_characters = get_node("Botao_Dica").dica_visivel

@@ -20,6 +20,7 @@ animations = [ {
 [node name="Botao_Dica" type="StaticBody2D"]
 position = Vector2( 1216, 32 )
 collision_layer = 16
+collision_mask = 0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
