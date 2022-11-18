@@ -38,9 +38,7 @@ func _process(delta):
 		get_node("Laser").position = Vector2(posX + 128, posY + (224 * 2))
 	elif get_node("/root/Global").get("fase") == 17:
 		get_node("Laser").position = Vector2(posX + (128 * 2), posY + (224 * 2))
-	elif get_node("/root/Global").get("fase") == 18:
-		get_node("Laser").position = Vector2(posX + (128 * 3), posY + (224 * 2))
-	elif get_node("/root/Global").get("fase") == 19:
+	elif get_node("/root/Global").get("fase") == 18 or get_node("/root/Global").get("fase") == 19:
 		get_node("Laser").position = Vector2(posX + (128 * 4), posY + (224 * 2))
 	elif get_node("/root/Global").get("fase") == 20:
 		get_node("Laser").position = Vector2(posX + (128 * 5), posY + (224 * 2))

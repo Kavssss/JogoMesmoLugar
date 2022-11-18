@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
-[ext_resource path="res://Cenas/PlayerLua.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cenas/Botao.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Cenas/DeadLua.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Cenas/Dead.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Font/Montserrat-SemiBold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Sprites/scenario/scenario.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/scenario/empty.png" type="Texture" id=8]
@@ -18,7 +18,7 @@
 [ext_resource path="res://Sprites/scenario/laser_open_5.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/1-Simples.gd" type="Script" id=17]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=20]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -60,17 +60,20 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 18
+outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 19 )
+font_data = ExtResource( 20 )
 
-[node name="9-Lua" type="Node2D"]
+[node name="18-Proxima" type="Node2D"]
 script = ExtResource( 17 )
 
 [node name="Background" type="Sprite" parent="."]
+scale = Vector2( 0.999274, 0.9987 )
 texture = ExtResource( 15 )
 centered = false
 
 [node name="Plataforms" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="Scenario" type="Sprite" parent="Plataforms"]
 texture = ExtResource( 7 )
@@ -305,12 +308,12 @@ polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
 [node name="Spike41" type="CollisionPolygon2D" parent="Spikes"]
 position = Vector2( 480, 672 )
 rotation = -1.57079
-polygon = PoolVector2Array( 32, 32, 64, 48, 32.0002, 62.9999 )
+polygon = PoolVector2Array( 32, 32, 64, 48, 32.0002, 63.9999 )
 
 [node name="Spike42" type="CollisionPolygon2D" parent="Spikes"]
 position = Vector2( 800, 672 )
 rotation = -1.57079
-polygon = PoolVector2Array( 32.0001, 32.9999, 64, 48, 32, 64 )
+polygon = PoolVector2Array( 32.0001, 31.9999, 64, 48, 32, 64 )
 
 [node name="Laser" type="StaticBody2D" parent="."]
 collision_layer = 256
@@ -319,9 +322,9 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Laser"]
 position = Vector2( 1216, 288 )
+scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
-frame = 1
 playing = true
 centered = false
 
@@ -347,14 +350,13 @@ shape = SubResource( 10 )
 [node name="Titulo" type="Label" parent="."]
 margin_left = 96.0
 margin_top = 64.0
-margin_right = 226.0
+margin_right = 259.0
 margin_bottom = 104.0
 custom_fonts/font = SubResource( 11 )
-text = "9- Lua"
+text = "18- Próxima"
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
-rotation = -6.28318
 
 [node name="Botao_Dica" parent="." instance=ExtResource( 18 )]
 
@@ -363,16 +365,17 @@ margin_left = 512.0
 margin_top = 64.0
 margin_right = 864.0
 margin_bottom = 96.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 12 )
-text = "Sério?"
+text = "Porta 19"
 align = 1
 valign = 1
 percent_visible = 0.0
 
-[node name="DeadLua" parent="." instance=ExtResource( 5 )]
+[node name="Dead" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -64 )
 
-[node name="PlayerLua" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 32, 320 )
 
 [connection signal="body_entered" from="Saida" to="Saida" method="_on_Saida_body_entered"]
