@@ -20,10 +20,11 @@ Transition="*res://Cenas/Transition.tscn"
 
 [display]
 
-window/size/width=1360
+window/size/width=1366
 window/size/height=768
-window/size/resizable=false
 window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 
