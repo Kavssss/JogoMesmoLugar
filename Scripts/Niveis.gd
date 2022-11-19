@@ -2,22 +2,13 @@ extends Node2D
 
 var posX = 352
 var posY = 64
-var cont = 0
-
-func laser():
-	return get_node("/root/Global").laser
 
 func _process(delta):
-	cont += 1
-	if cont % 100 == 0:
-		print("laser: ", laser())
-		print("fase: ", get_node("/root/Global").fase)
-
 	if get_node("/root/Global").fase > laser():
 		get_node("/root/Global").set("laser", get_node("/root/Global").fase)
 
 	if laser() == 1:
-		get_node("laser").position = Vector2(posX, posY)
+		get_node("Laser").position = Vector2(posX, posY)
 	elif laser() == 2:
 		get_node("Laser").position = Vector2(posX + 128, posY)
 	elif laser() == 3:
@@ -59,6 +50,9 @@ func _process(delta):
 	else:
 		get_node("Laser").hide()
 		get_node("Laser/CollisionShape2D").disabled = true
+
+func laser():
+	return get_node("/root/Global").laser
 
 func _on_Voltar_body_entered(body):
 	get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
