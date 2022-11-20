@@ -19,6 +19,6 @@ func posicao_menu(x, y):
 	posicao = Vector2(x, y)
 
 func _input(event):
-	if get_tree().get_current_scene().get_name() != "19-1":
+	if get_tree().get_current_scene().get_name() != "19-1" and get_tree().get_current_scene().get_name() != "Menu":
 		if Input.is_key_pressed(KEY_P): 
 			get_tree().paused = !get_tree().paused

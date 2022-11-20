@@ -5,7 +5,7 @@ func _ready():
 
 func _process(delta):
 	if $Label.visible_characters == -1:
-		if Input.is_action_pressed("ui_accept"):
+		if Input.is_action_just_released("ui_accept"):
 			get_node("../UserSenha").visible = true
 			get_node("../UserSenha/Sprite/User").grab_focus()
 			get_node("../PlayerMenu").parado = true

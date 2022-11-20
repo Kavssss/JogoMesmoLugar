@@ -33,6 +33,7 @@ common/drop_mouse_on_gui_input_disabled=true
 
 2d_physics/layer_1="Cenário"
 2d_physics/layer_5="Botão"
+2d_physics/layer_8="Porta"
 2d_physics/layer_9="Morte"
 2d_physics/layer_16="Saída"
 

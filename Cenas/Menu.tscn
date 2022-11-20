@@ -101,7 +101,7 @@ animations = [ {
 "speed": 2.0
 }, {
 "frames": [ ExtResource( 17 ) ],
-"loop": true,
+"loop": false,
 "name": "fechado",
 "speed": 5.0
 } ]
@@ -151,6 +151,7 @@ centered = false
 [node name="Saida" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 448 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
@@ -185,6 +186,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Jogar"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -204,6 +206,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Niveis"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -223,6 +226,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Creditos"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -241,7 +245,7 @@ align = 2
 
 [node name="Elevador" type="Area2D" parent="."]
 position = Vector2( 1120, 320 )
-collision_layer = 16
+collision_layer = 128
 collision_mask = 0
 script = ExtResource( 35 )
 __meta__ = {
@@ -262,7 +266,6 @@ disabled = true
 [node name="Sprite2" type="AnimatedSprite" parent="Elevador"]
 z_index = 1
 frames = SubResource( 12 )
-animation = "null"
 centered = false
 
 [node name="Timer" type="Timer" parent="Elevador"]
