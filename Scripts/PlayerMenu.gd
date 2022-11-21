@@ -26,8 +26,12 @@ func _physics_process(_delta):
 				motion.y = -520
 
 		if morreu:
-			position.x = 32
-			position.y = 160
+			if get_tree().get_current_scene().get_name() == "Menu":
+				position.x = 96
+				position.y = 544
+			elif get_tree().get_current_scene().get_name() == "Niveis":
+				position.x = 32
+				position.y = 160
 			morreu = false
 
 		motion = move_and_slide(motion, UP)
