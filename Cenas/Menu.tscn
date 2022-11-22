@@ -89,7 +89,7 @@ animations = [ {
 "frames": [ ExtResource( 41 ) ],
 "loop": false,
 "name": "desligado",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 44 ), ExtResource( 43 ) ],
 "loop": true,
@@ -281,9 +281,10 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="Laser"]
-scale = Vector2( 0.969697, 0.998695 )
+scale = Vector2( 0.969697, 0.996109 )
 frames = SubResource( 13 )
 animation = "ligado"
+frame = 1
 playing = true
 centered = false
 

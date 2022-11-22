@@ -1,0 +1,385 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Scripts/PortaFinal.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/menu/doorOpening2.png" type="Texture" id=2]
+[ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cenas/Botao.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Cenas/Dead.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Font/Montserrat-SemiBold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Sprites/menu/doorClosing3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/menu/doorClosed1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/menu/doorOpened2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/menu/doorOpened1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/menu/doorClosing1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/menu/doorOpening3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/menu/doorClosing2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/menu/doorClosed2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/scenario/background_fases.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/menu/doorOpening1.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/22-Morse.gd" type="Script" id=17]
+[ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sprites/scenario/scenarioFinal.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=20]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 112, 16 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 8 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "closed",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "closing",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "opened",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 16 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "opening",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8, 80 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 20 )
+
+[node name="22-Morse" type="Node2D"]
+script = ExtResource( 17 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 0.999274, 0.9987 )
+texture = ExtResource( 15 )
+centered = false
+
+[node name="Plataforms" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="Scenario" type="Sprite" parent="Plataforms"]
+texture = ExtResource( 19 )
+centered = false
+
+[node name="Cenario" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 0, 288, 160, 288, 192, 256, 256, 256, 192, 192, 32, 192, 32, 32, 1344, 32, 1344, 192, 1184, 192, 1120, 256, 1184, 256, 1216, 288, 1312, 288, 1312, 448, 1152, 448, 1152, 480, 1312, 480, 1312, 736, 864, 736, 864, 640, 512, 640, 512, 736, 64, 736, 64, 480, 224, 480, 224, 448, 0, 448, 0, 768, 1376, 768, 1376, 448, 1376, 288, 1376, 0, 0, 0 )
+
+[node name="Base" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 512, 256, 544, 224, 832, 224, 864, 256, 832, 288, 544, 288 )
+
+[node name="Plataforma1" type="CollisionShape2D" parent="Plataforms"]
+position = Vector2( 384, 400 )
+shape = SubResource( 2 )
+
+[node name="Plataforma2" type="CollisionShape2D" parent="Plataforms"]
+position = Vector2( 992, 400 )
+shape = SubResource( 3 )
+
+[node name="Plataforma3" type="CollisionShape2D" parent="Plataforms"]
+position = Vector2( 688, 464 )
+shape = SubResource( 4 )
+
+[node name="Plataforma4" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 288, 544, 480, 544, 448, 576, 288, 576 )
+
+[node name="Plataforma5" type="CollisionPolygon2D" parent="Plataforms"]
+position = Vector2( 608, 0 )
+polygon = PoolVector2Array( 288, 544, 480, 544, 480, 576, 320, 576 )
+
+[node name="Spikes" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="Spike1" type="CollisionPolygon2D" parent="Spikes"]
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike2" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 0, 32 )
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike3" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 0, 64 )
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike4" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 0, 96 )
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike5" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 0, 128 )
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike6" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 32, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike7" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 64, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike8" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 96, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike9" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 128, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike10" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 160, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike11" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 192, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike12" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 224, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike13" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 256, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike14" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 288, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike15" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 320, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike16" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 352, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike17" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 384, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike18" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 416, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike19" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 448, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike20" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 832, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike21" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 864, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike22" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 896, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike23" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 928, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike24" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 960, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike25" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 992, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike26" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1024, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike27" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1056, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike28" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1088, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike29" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1120, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike30" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1152, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike31" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1184, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike32" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1216, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike33" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1248, 768 )
+rotation = -1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike34" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1376, 96 )
+rotation = -3.14159
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike35" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1376, 128 )
+rotation = -3.14159
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike36" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1376, 160 )
+rotation = -3.14159
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike37" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1376, 192 )
+rotation = -3.14159
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike38" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 1376, 224 )
+rotation = -3.14159
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike39" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 576, 0 )
+rotation = 1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike40" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 896, 0 )
+rotation = 1.5708
+polygon = PoolVector2Array( 32, 32, 64, 48, 32, 64 )
+
+[node name="Spike41" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 480, 672 )
+rotation = -1.57079
+polygon = PoolVector2Array( 32, 32, 64, 48, 32.0002, 63.9999 )
+
+[node name="Spike42" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2( 800, 672 )
+rotation = -1.57079
+polygon = PoolVector2Array( 32.0001, 31.9999, 64, 48, 32, 64 )
+
+[node name="PortaFinal" type="Area2D" parent="."]
+position = Vector2( 1200, 352 )
+collision_layer = 128
+collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="PortaFinal"]
+scale = Vector2( 1, 0.993789 )
+frames = SubResource( 7 )
+animation = "closed"
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaFinal"]
+position = Vector2( 32, 80 )
+shape = SubResource( 8 )
+
+[node name="Entrada" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrada"]
+position = Vector2( -8, 368 )
+shape = SubResource( 9 )
+
+[node name="Titulo" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 259.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 11 )
+text = "22- - .-.. .- ..."
+
+[node name="Botao" parent="." instance=ExtResource( 4 )]
+position = Vector2( 608, 192 )
+
+[node name="Botao_Dica" parent="." instance=ExtResource( 18 )]
+
+[node name="Dica" type="Label" parent="."]
+margin_left = 512.0
+margin_top = 64.0
+margin_right = 864.0
+margin_bottom = 96.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "Morse"
+align = 1
+valign = 1
+percent_visible = 0.0
+
+[node name="Dead" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -64 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 32, 352 )
+collision_mask = 32913
+
+[connection signal="body_entered" from="PortaFinal" to="PortaFinal" method="_on_PortaFinal_body_entered"]
+[connection signal="body_exited" from="PortaFinal" to="PortaFinal" method="_on_PortaFinal_body_exited"]
