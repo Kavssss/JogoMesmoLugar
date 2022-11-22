@@ -33,9 +33,6 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="SpritePressione" type="AnimatedSprite" parent="."]
 position = Vector2( 512, 704 )
 frames = SubResource( 1 )

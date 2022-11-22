@@ -54,5 +54,11 @@ func _on_Saida_body_entered(body):
 	elif get_tree().get_current_scene().get_name() == get_node("/root/Global").nomes[17]:
 		get_node("/root/Transition").fade_into("res://Cenas/18-Proxima.tscn")
 	elif get_tree().get_current_scene().get_name() == get_node("/root/Global").nomes[18]:
-		get_node("/root/Transition").fade_into("res://Cenas/19-1.tscn")
-		get_node("/root/Global").set("fase", 19)
+		get_node("/root/Transition").fade_into("res://Cenas/20-Cuidado.tscn")
+		get_node("/root/Global").set("fase", 20)
+	elif get_tree().get_current_scene().get_name() == get_node("/root/Global").nomes[19]:
+		get_node("/root/Transition").fade_into("res://Cenas/21.tscn")
+		get_node("/root/Global").set("fase", 21)
+	elif get_tree().get_current_scene().get_name() == get_node("/root/Global").nomes[20]:
+		get_node("/root/Transition").fade_into("res://Cenas/22-Morse.tscn")
+		get_node("/root/Global").set("fase", 22)
