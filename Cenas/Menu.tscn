@@ -205,7 +205,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Jogar"]
 frames = SubResource( 1 )
 animation = "closed"
-frame = 1
+frame = 2
 playing = true
 centered = false
 
@@ -225,7 +225,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Niveis"]
 frames = SubResource( 1 )
 animation = "closed"
-frame = 1
+frame = 2
 playing = true
 centered = false
 
@@ -245,7 +245,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Creditos"]
 frames = SubResource( 1 )
 animation = "closed"
-frame = 1
+frame = 2
 playing = true
 centered = false
 
@@ -265,6 +265,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="FaseFinal"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 
@@ -291,7 +292,6 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
 position = Vector2( 16, 128 )
 shape = SubResource( 14 )
-disabled = true
 
 [node name="Dicas_restantes" type="Label" parent="."]
 margin_left = 960.0

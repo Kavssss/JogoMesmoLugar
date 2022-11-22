@@ -56,5 +56,5 @@ func laser():
 
 func _on_Voltar_body_entered(body):
 	get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
-	get_node("/root/Global").posicao_menu(576, 544)
+	get_node("/root/Global").posicao_menu(544, 544)
 	

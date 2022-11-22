@@ -1,25 +1,25 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Scripts/PortaFinal.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/menu/doorOpening2.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
 [ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cenas/Botao.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Cenas/Dead.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Font/Montserrat-SemiBold.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Sprites/menu/doorClosing3.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/menu/doorClosed1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/menu/doorOpened2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/menu/doorOpened1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/menu/doorClosing1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/menu/doorOpening3.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/menu/doorClosing2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/menu/doorClosed2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/scenario/scenario.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/scenario/empty.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/scenario/laser_open_4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/scenario/laser_open_3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/scenario/laser_open_1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/scenario/laser_closed_2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/scenario/laser_open_2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/scenario/laser_closed_1.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/scenario/background_fases.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/menu/doorOpening1.png" type="Texture" id=16]
-[ext_resource path="res://Scripts/22-Morse.gd" type="Script" id=17]
+[ext_resource path="res://Sprites/scenario/laser_open_5.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/Inimigos.gd" type="Script" id=17]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Sprites/scenario/scenarioFinal.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://Sprites/menu/inimigo.png" type="Texture" id=21]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -32,32 +32,25 @@ extents = Vector2( 112, 16 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 8 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "closed",
-"speed": 2.0
+"speed": 15.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 8 ) ],
 "loop": false,
-"name": "closing",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "opened",
-"speed": 2.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 16 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "opening",
-"speed": 10.0
+"name": "open",
+"speed": 8.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 8, 16 )
+extents = Vector2( 16, 72 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 80 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 16, 80 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 32
@@ -72,11 +65,7 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 20 )
 
-[node name="22-Morse" type="Node2D"]
-script = ExtResource( 17 )
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
+[node name="20-Cuidado" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
 scale = Vector2( 0.999274, 0.9987 )
@@ -87,11 +76,14 @@ centered = false
 collision_mask = 0
 
 [node name="Scenario" type="Sprite" parent="Plataforms"]
-texture = ExtResource( 19 )
+texture = ExtResource( 7 )
 centered = false
 
-[node name="Cenario" type="CollisionPolygon2D" parent="Plataforms"]
-polygon = PoolVector2Array( 0, 288, 160, 288, 192, 256, 256, 256, 192, 192, 32, 192, 32, 32, 1344, 32, 1344, 192, 1184, 192, 1120, 256, 1184, 256, 1216, 288, 1312, 288, 1312, 448, 1152, 448, 1152, 480, 1312, 480, 1312, 736, 864, 736, 864, 640, 512, 640, 512, 736, 64, 736, 64, 480, 224, 480, 224, 448, 0, 448, 0, 768, 1376, 768, 1376, 448, 1376, 288, 1376, 0, 0, 0 )
+[node name="Baixo" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 0, 448, 0, 768, 1376, 768, 1376, 448, 1152, 448, 1152, 480, 1312, 480, 1312, 736, 864, 736, 864, 640, 512, 640, 512, 736, 64, 736, 64, 480, 224, 480, 224, 448 )
+
+[node name="Cima" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 0, 288, 160, 288, 192, 256, 256, 256, 192, 192, 32, 192, 32, 32, 1344, 32, 1344, 192, 1184, 192, 1120, 256, 1184, 256, 1216, 288, 1216, 304, 1248, 304, 1248, 288, 1376, 288, 1376, 0, 0, 0 )
 
 [node name="Base" type="CollisionPolygon2D" parent="Plataforms"]
 polygon = PoolVector2Array( 512, 256, 544, 224, 832, 224, 864, 256, 832, 288, 544, 288 )
@@ -323,25 +315,22 @@ position = Vector2( 800, 672 )
 rotation = -1.57079
 polygon = PoolVector2Array( 32.0001, 31.9999, 64, 48, 32, 64 )
 
-[node name="PortaFinal" type="Area2D" parent="."]
-position = Vector2( 1200, 352 )
-collision_layer = 128
+[node name="Laser" type="StaticBody2D" parent="."]
+collision_layer = 256
 collision_mask = 0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Sprite" type="AnimatedSprite" parent="PortaFinal"]
+[node name="Sprite" type="AnimatedSprite" parent="Laser"]
+position = Vector2( 1216, 288 )
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
-frame = 2
+frame = 1
 playing = true
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaFinal"]
-position = Vector2( 32, 80 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
+position = Vector2( 1232, 376 )
 shape = SubResource( 8 )
 
 [node name="Entrada" type="StaticBody2D" parent="."]
@@ -350,13 +339,23 @@ shape = SubResource( 8 )
 position = Vector2( -8, 368 )
 shape = SubResource( 9 )
 
+[node name="Saida" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saida"]
+position = Vector2( 1360, 368 )
+shape = SubResource( 10 )
+
 [node name="Titulo" type="Label" parent="."]
+visible = false
 margin_left = 96.0
 margin_top = 64.0
 margin_right = 259.0
 margin_bottom = 104.0
 custom_fonts/font = SubResource( 11 )
-text = "22- - .-.. .- ..."
+text = "20- Delay"
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
@@ -370,7 +369,7 @@ margin_right = 864.0
 margin_bottom = 96.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 12 )
-text = "Morse"
+text = "Sério?"
 align = 1
 valign = 1
 percent_visible = 0.0
@@ -379,8 +378,116 @@ percent_visible = 0.0
 position = Vector2( 0, -64 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 32, 352 )
-collision_mask = 32913
+pause_mode = 2
+position = Vector2( 32, 384 )
 
-[connection signal="body_entered" from="PortaFinal" to="PortaFinal" method="_on_PortaFinal_body_entered"]
-[connection signal="body_exited" from="PortaFinal" to="PortaFinal" method="_on_PortaFinal_body_exited"]
+[node name="Inimigos" type="KinematicBody2D" parent="."]
+script = ExtResource( 17 )
+
+[node name="0" type="StaticBody2D" parent="Inimigos"]
+position = Vector2( 320, 352 )
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Inimigos/0"]
+texture = ExtResource( 21 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inimigos/0"]
+polygon = PoolVector2Array( 0, 32, 16, 0, 32, 32 )
+
+[node name="1" type="KinematicBody2D" parent="Inimigos"]
+position = Vector2( 288, 512 )
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Inimigos/1"]
+texture = ExtResource( 21 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inimigos/1"]
+polygon = PoolVector2Array( 0, 32, 16, 0, 32, 32 )
+
+[node name="2" type="KinematicBody2D" parent="Inimigos"]
+position = Vector2( 576, 416 )
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Inimigos/2"]
+texture = ExtResource( 21 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inimigos/2"]
+polygon = PoolVector2Array( 0, 32, 16, 0, 32, 32 )
+
+[node name="3" type="KinematicBody2D" parent="Inimigos"]
+position = Vector2( 928, 352 )
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Inimigos/3"]
+texture = ExtResource( 21 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inimigos/3"]
+polygon = PoolVector2Array( 0, 32, 16, 0, 32, 32 )
+
+[node name="4" type="KinematicBody2D" parent="Inimigos"]
+position = Vector2( 896, 512 )
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Inimigos/4"]
+texture = ExtResource( 21 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inimigos/4"]
+polygon = PoolVector2Array( 0, 32, 16, 0, 32, 32 )
+
+[node name="5" type="KinematicBody2D" parent="Inimigos"]
+position = Vector2( 544, 608 )
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Inimigos/5"]
+texture = ExtResource( 21 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inimigos/5"]
+polygon = PoolVector2Array( 0, 32, 16, 0, 32, 32 )
+
+[node name="6" type="KinematicBody2D" parent="Inimigos"]
+position = Vector2( 576, 64 )
+rotation = 3.14159
+collision_layer = 256
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Inimigos/6"]
+texture = ExtResource( 21 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Inimigos/6"]
+polygon = PoolVector2Array( 0, 32, 16, 0, 32, 32 )
+
+[connection signal="body_entered" from="Saida" to="Saida" method="_on_Saida_body_entered"]
