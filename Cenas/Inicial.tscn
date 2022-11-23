@@ -36,7 +36,7 @@ autostart = true
 [node name="SpritePressione" type="AnimatedSprite" parent="."]
 position = Vector2( 512, 704 )
 frames = SubResource( 1 )
-animation = "ligado"
+animation = "desligado"
 playing = true
 centered = false
 
