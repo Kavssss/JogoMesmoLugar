@@ -327,6 +327,7 @@ position = Vector2( 1216, 288 )
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 
@@ -379,7 +380,7 @@ position = Vector2( 0, -64 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 pause_mode = 2
-position = Vector2( 32, 384 )
+position = Vector2( 32, 320 )
 
 [node name="Inimigos" type="Node" parent="."]
 script = ExtResource( 19 )

@@ -6,9 +6,9 @@ var morreu = false
 
 func _physics_process(_delta):
 	if morreu:
-		if get_node("../PlayerSozinho").motion.x > 0:
+		if get_node("../Player").motion.x > 0:
 			motion.x += 170
-		elif get_node("../PlayerSozinho").motion.x < 0:
+		elif get_node("../Player").motion.x < 0:
 			motion.x -= 170
 		morreu = false
 	else:
@@ -24,9 +24,9 @@ func morte(body):
 	else:
 		$Sprite.set_texture(preload("res://Sprites/New player/dead.png"))
 
-	position.x = get_node("../PlayerSozinho").position.x
-	position.y = get_node("../PlayerSozinho").position.y
-	get_node("../PlayerSozinho").set("morreu", true)
+	position.x = get_node("../Player").position.x
+	position.y = get_node("../Player").position.y
+	get_node("../Player").set("morreu", true)
 	morreu = true
 
 func _on_Area2D_body_entered(body):

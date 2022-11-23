@@ -1,10 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
-[ext_resource path="res://Cenas/DeadDepressa.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cenas/Dead.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cenas/Botao.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Cenas/PlayerDepressa.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Font/Montserrat-SemiBold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Sprites/scenario/scenario.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/scenario/empty.png" type="Texture" id=8]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Scripts/1-Simples.gd" type="Script" id=17]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Scripts/PlayerDepressa.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/DeadDepressa.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -367,10 +369,12 @@ text = "Sério?"
 align = 1
 valign = 1
 
-[node name="DeadDepressa" parent="." instance=ExtResource( 3 )]
+[node name="Dead" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -64 )
+script = ExtResource( 21 )
 
-[node name="PlayerDepressa" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 32, 320 )
+script = ExtResource( 20 )
 
 [connection signal="body_entered" from="Saida" to="Saida" method="_on_Saida_body_entered"]
