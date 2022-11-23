@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Sprites/scenario/background.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/menu/plataformsMenu.png" type="Texture" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://Sprites/menu/laserMenu1.png" type="Texture" id=44]
 [ext_resource path="res://Cenas/DeadMenu.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Sprites/Font/iknowaghost.ttf" type="DynamicFontData" id=46]
+[ext_resource path="res://Sounds/laser.wav" type="AudioStream" id=47]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -170,6 +171,7 @@ centered = false
 [node name="Saida" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 448 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 centered = false
 
@@ -204,6 +206,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Jogar"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -223,6 +226,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Niveis"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -242,6 +246,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Creditos"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -261,7 +266,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="FaseFinal"]
 frames = SubResource( 1 )
 animation = "closed"
-frame = 2
+frame = 1
 playing = true
 centered = false
 
@@ -281,13 +286,17 @@ __meta__ = {
 scale = Vector2( 0.969697, 0.996109 )
 frames = SubResource( 13 )
 animation = "ligado"
-frame = 1
 playing = true
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
 position = Vector2( 16, 128 )
 shape = SubResource( 14 )
+
+[node name="Audio" type="AudioStreamPlayer" parent="Laser"]
+stream = ExtResource( 47 )
+volume_db = -22.0
+mix_target = 2
 
 [node name="Dicas_restantes" type="Label" parent="."]
 margin_left = 960.0

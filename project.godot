@@ -13,6 +13,10 @@ config_version=4
 config/name="Dejavu"
 run/main_scene="res://Cenas/Inicial.tscn"
 
+[audio]
+
+default_bus_layout=""
+
 [autoload]
 
 Global="*res://Cenas/Global.tscn"
@@ -23,7 +27,6 @@ TransitionFinal="*res://Cenas/TransitionFinal.tscn"
 
 window/size/width=1366
 window/size/height=768
-window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

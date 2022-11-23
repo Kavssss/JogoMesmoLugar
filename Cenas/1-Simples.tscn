@@ -357,6 +357,7 @@ text = "1- Simples	"
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
+collision_mask = 0
 
 [node name="Botao_Dica" parent="." instance=ExtResource( 18 )]
 

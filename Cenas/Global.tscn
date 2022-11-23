@@ -1,7 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Global.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/backsound.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/laser.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/laser_desligando.wav" type="AudioStream" id=4]
 
 [node name="Global" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 1 )
+
+[node name="Backsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -5.0
+
+[node name="Laser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+
+[node name="Laser_desligando" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
