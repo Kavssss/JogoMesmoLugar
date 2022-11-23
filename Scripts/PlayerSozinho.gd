@@ -4,6 +4,7 @@ const UP = Vector2(0, -1)
 var motion = Vector2()
 var morreu = false
 var cont = 0
+var noBotao = false
 
 func _ready():
 	position.x = 30
@@ -35,13 +36,15 @@ func _physics_process(_delta):
 
 	motion = move_and_slide(motion, UP)
 
-func _on_Foot_body_entered(body):
-	if body.has_method("pressionado"):
-		body.pressionado()
+func _on_Press_body_entered(body):
+	if !noBotao:
+		if body.has_method("pressionado"):
+			body.pressionado()
 
-func _on_Foot_body_exited(body):
-	if body.has_method("livre"):
-		body.livre()
+func _on_Press_body_exited(body):
+	if !noBotao:
+		if body.has_method("livre"):
+			body.livre()
 
 func _on_Limit_body_entered(body):
 	get_node("../Dead").morte(body)

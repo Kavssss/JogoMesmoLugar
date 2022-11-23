@@ -161,7 +161,7 @@ func _on_Porta15_body_exited(body):
 func _on_Porta16_body_entered(body):
 	aberta = true
 	get_node("/root/Global").set("fase_atual", 16)
-	porta = "res://Cenas/16-.tscn"
+	porta = "res://Cenas/16-Zoom.tscn"
 	$Porta16/Sprite.play("opening")
 
 func _on_Porta16_body_exited(body):
@@ -171,7 +171,7 @@ func _on_Porta16_body_exited(body):
 func _on_Porta17_body_entered(body):
 	aberta = true
 	get_node("/root/Global").set("fase_atual", 17)
-	porta = "res://Cenas/17-.tscn"
+	porta = "res://Cenas/17-Ventania.tscn"
 	$Porta17/Sprite.play("opening")
 
 func _on_Porta17_body_exited(body):
@@ -181,7 +181,7 @@ func _on_Porta17_body_exited(body):
 func _on_Porta18_body_entered(body):
 	aberta = true
 	get_node("/root/Global").set("fase_atual", 18)
-	porta = "res://Cenas/18-.tscn"
+	porta = "res://Cenas/18-Proxima.tscn"
 	$Porta18/Sprite.play("opening")
 
 func _on_Porta18_body_exited(body):
@@ -192,7 +192,7 @@ func _on_Porta19_body_entered(body):
 	aberta = true
 	get_node("/root/Global").set("fase_atual", 19)
 	get_node("/root/Global").set("fase", 19)
-	porta = "res://Cenas/19-.tscn"
+	porta = "res://Cenas/19-1.tscn"
 	$Porta19/Sprite.play("opening")
 
 func _on_Porta19_body_exited(body):
@@ -202,7 +202,7 @@ func _on_Porta19_body_exited(body):
 func _on_Porta20_body_entered(body):
 	aberta = true
 	get_node("/root/Global").set("fase_atual", 20)
-	porta = "res://Cenas/20-.tscn"
+	porta = "res://Cenas/20-Cuidado.tscn"
 	$Porta20/Sprite.play("opening")
 
 func _on_Porta20_body_exited(body):
@@ -212,7 +212,7 @@ func _on_Porta20_body_exited(body):
 func _on_Porta21_body_entered(body):
 	aberta = true
 	get_node("/root/Global").set("fase_atual", 21)
-	porta = "res://Cenas/21-.tscn"
+	porta = "res://Cenas/21-NaoEstaAqui.tscn"
 	$Porta21/Sprite.play("opening")
 
 func _on_Porta21_body_exited(body):
@@ -222,7 +222,7 @@ func _on_Porta21_body_exited(body):
 func _on_Porta22_body_entered(body):
 	aberta = true
 	get_node("/root/Global").set("fase_atual", 22)
-	porta = "res://Cenas/22-.tscn"
+	porta = "res://Cenas/22-Morse.tscn"
 	$Porta22/Sprite.play("opening")
 
 func _on_Porta22_body_exited(body):

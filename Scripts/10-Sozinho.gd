@@ -1,10 +1,12 @@
 extends Node2D
 
-func _physics_process(_delta):
+func _process(delta):
 	if get_node("Botao").isPressed():
 		get_node("Laser/Sprite").play("open")
 		get_node("Laser/CollisionShape2D").disabled = true
 	else:
+		get_node("Laser/Sprite").play("close")
+		yield(get_tree().create_timer(1), "timeout")
 		get_node("Laser/Sprite").play("closed")
 		get_node("Laser/CollisionShape2D").disabled = false
 

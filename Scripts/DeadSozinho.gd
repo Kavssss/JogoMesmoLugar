@@ -30,9 +30,11 @@ func morte(body):
 	morreu = true
 
 func _on_Area2D_body_entered(body):
+	get_node("../Player").noBotao = true
 	if body.has_method("pressionado"):
 		body.pressionado()
 
 func _on_Area2D_body_exited(body):
+	get_node("../Player").noBotao = false
 	if body.has_method("livre"):
 		body.livre()

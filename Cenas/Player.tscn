@@ -31,7 +31,7 @@ radius = 16.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 4.75, 1 )
+extents = Vector2( 4.75, 32 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 0
@@ -45,7 +45,7 @@ __meta__ = {
 scale = Vector2( 0.561404, 0.533333 )
 frames = SubResource( 9 )
 animation = "walk"
-frame = 1
+frame = 6
 playing = true
 centered = false
 
@@ -61,18 +61,14 @@ collision_mask = 256
 position = Vector2( 16, 32 )
 shape = SubResource( 11 )
 
-[node name="Foot" type="Area2D" parent="."]
+[node name="Press" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16
 
-[node name="Down" type="CollisionShape2D" parent="Foot"]
-position = Vector2( 16, 63 )
-shape = SubResource( 12 )
-
-[node name="Up" type="CollisionShape2D" parent="Foot"]
-position = Vector2( 16, 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Press"]
+position = Vector2( 16, 32 )
 shape = SubResource( 12 )
 
 [connection signal="body_entered" from="Limit" to="." method="_on_Limit_body_entered"]
-[connection signal="body_entered" from="Foot" to="." method="_on_Foot_body_entered"]
-[connection signal="body_exited" from="Foot" to="." method="_on_Foot_body_exited"]
+[connection signal="body_entered" from="Press" to="." method="_on_Press_body_entered"]
+[connection signal="body_exited" from="Press" to="." method="_on_Press_body_exited"]

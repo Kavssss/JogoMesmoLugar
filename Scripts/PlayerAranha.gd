@@ -30,11 +30,11 @@ func _physics_process(_delta):
 
 	motion = move_and_slide(motion, UP)
 
-func _on_Foot_body_entered(body):
+func _on_Press_body_entered(body):
 	if body.has_method("pressionado"):
 		body.pressionado()
 
-func _on_Foot_body_exited(body):
+func _on_Press_body_exited(body):
 	if body.has_method("livre"):
 		body.livre()
 

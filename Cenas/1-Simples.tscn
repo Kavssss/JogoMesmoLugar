@@ -65,6 +65,7 @@ use_filter = true
 font_data = ExtResource( 20 )
 
 [node name="1-Simples" type="Node2D"]
+position = Vector2( 0, 1 )
 script = ExtResource( 17 )
 
 [node name="Background" type="Sprite" parent="."]
