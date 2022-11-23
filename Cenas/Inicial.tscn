@@ -37,7 +37,6 @@ autostart = true
 position = Vector2( 512, 704 )
 frames = SubResource( 1 )
 animation = "ligado"
-frame = 7
 playing = true
 centered = false
 

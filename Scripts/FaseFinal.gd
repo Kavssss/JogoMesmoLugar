@@ -7,7 +7,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			get_node("/root/Transition").fade_into("res://Cenas/22-Morse.tscn")
 			get_node("/root/Global").posicao = Vector2(1216, 384)
-			
 
 func _on_FaseFinal_body_entered(body):
 	aberta = true

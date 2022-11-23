@@ -9,3 +9,7 @@ func _process(delta):
 	if !get_node("/root/Global").laserMenu:
 		$Laser/Sprite.play("desligado")
 		$Laser/CollisionShape2D.disabled = true
+
+	if !$Elevador/Timer.is_stopped():
+		yield(get_tree().create_timer(4), "timeout")
+		get_node("/root/TransitionFinal").fade_into("res://Cenas/Final.tscn")

@@ -17,6 +17,7 @@ run/main_scene="res://Cenas/Inicial.tscn"
 
 Global="*res://Cenas/Global.tscn"
 Transition="*res://Cenas/Transition.tscn"
+TransitionFinal="*res://Cenas/TransitionFinal.tscn"
 
 [display]
 
