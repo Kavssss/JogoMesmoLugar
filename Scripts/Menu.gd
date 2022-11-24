@@ -4,6 +4,7 @@ func _ready():
 	$UserSenha.visible = false
 	get_node("PlayerMenu").position = get_node("/root/Global").posicao
 	$Dicas_restantes.text = "Dicas restantes: " + str(get_node("/root/Global").dicas)
+	$Mortes.text = "Mortes: " + str(get_node("/root/Global").mortes)
 	$Laser/Audio.play()
 
 func _process(delta):

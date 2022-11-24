@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Global.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/backsound.wav" type="AudioStream" id=2]
 [ext_resource path="res://Sounds/laser.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/laser_desligando.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/tick.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/ui.wav" type="AudioStream" id=6]
 
 [node name="Global" type="Node2D"]
 pause_mode = 2
@@ -13,10 +15,17 @@ script = ExtResource( 1 )
 stream = ExtResource( 2 )
 volume_db = -5.0
 
-[node name="Laser" type="AudioStreamPlayer" parent="."]
+[node name="LaserSom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -20.0
 
-[node name="Laser_desligando" type="AudioStreamPlayer" parent="."]
+[node name="LaserDesligandoSom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -20.0
+
+[node name="BotaoSom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="MorteSom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

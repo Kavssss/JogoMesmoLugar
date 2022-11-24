@@ -171,7 +171,6 @@ centered = false
 [node name="Saida" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 448 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 centered = false
 
@@ -286,6 +285,7 @@ __meta__ = {
 scale = Vector2( 0.969697, 0.996109 )
 frames = SubResource( 13 )
 animation = "ligado"
+frame = 1
 playing = true
 centered = false
 
@@ -304,7 +304,16 @@ margin_top = 96.0
 margin_right = 1249.0
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 5 )
-text = "Dicas restantes: 3"
+text = " "
+align = 2
+
+[node name="Mortes" type="Label" parent="."]
+margin_left = 960.0
+margin_top = 136.0
+margin_right = 1249.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 5 )
+text = " "
 align = 2
 
 [node name="Elevador" type="Area2D" parent="."]

@@ -3,6 +3,7 @@ extends Node2D
 var botaoCreditos = false
 var laserMenu = true
 var dicas = 3
+var mortes = 0
 var posicao = Vector2(32, 544)
 var laser = 1
 var fase = 1
@@ -24,3 +25,7 @@ func _input(event):
 	if get_tree().get_current_scene().get_name() != "19-1" and get_tree().get_current_scene().get_name() != "Menu":
 		if Input.is_key_pressed(KEY_P): 
 			get_tree().paused = !get_tree().paused
+
+	if Input.is_action_pressed("ui_cancel"):
+		get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
+		posicao = Vector2(320, 544)

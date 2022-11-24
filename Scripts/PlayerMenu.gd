@@ -45,4 +45,6 @@ func _on_Foot_body_exited(body):
 		body.livre()
 
 func _on_Limit_body_entered(body):
+	get_node("/root/Global/MorteSom").play()
+	get_node("/root/Global").mortes += 1
 	get_node("../DeadMenu").morte(body)
