@@ -6,13 +6,16 @@ var posY = [0, 64, 64, 64, 64, 64, 64, 288, 288, 288, 288, 288, 288, 288, 512, 5
 512, 512, 512, 512, 512]
 
 func _process(delta):
-	if get_node("/root/Global").fase > laser():
-		get_node("/root/Global").set("laser", get_node("/root/Global").fase)
-	if laser() > 0:
-		get_node("Laser").position = Vector2(posX[laser()], posY[laser()])
+	if fase() > laser():
+		get_node("/root/Global").set("laser", fase())
+	if laser() != 22:
+		$Laser.position = Vector2(posX[laser()], posY[laser()])
 	else:
 		get_node("Laser").hide()
 		get_node("Laser/CollisionShape2D").disabled = true
+
+func fase():
+	return get_node("/root/Global").fase
 
 func laser():
 	return get_node("/root/Global").laser

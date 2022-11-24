@@ -4,7 +4,6 @@
 [ext_resource path="res://Cenas/Botao.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cenas/Dead.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Font/Montserrat-SemiBold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Scripts/2-Espere.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/scenario/laser_open_1.png" type="Texture" id=8]
@@ -19,6 +18,7 @@
 [ext_resource path="res://Sprites/scenario/background_fases.png" type="Texture" id=17]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Scripts/BotaoEspere.gd" type="Script" id=20]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -64,11 +64,6 @@ use_filter = true
 font_data = ExtResource( 19 )
 
 [node name="2-Espere" type="Node2D"]
-script = ExtResource( 5 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 17 )
@@ -328,6 +323,7 @@ __meta__ = {
 position = Vector2( 1216, 288 )
 frames = SubResource( 7 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 
@@ -360,6 +356,11 @@ text = "2- Espere"
 
 [node name="Botao" parent="." instance=ExtResource( 2 )]
 position = Vector2( 608, 192 )
+script = ExtResource( 20 )
+
+[node name="Timer" type="Timer" parent="Botao"]
+wait_time = 3.0
+one_shot = true
 
 [node name="Botao_Dica" parent="." instance=ExtResource( 18 )]
 
@@ -381,5 +382,5 @@ position = Vector2( 0, -64 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, 320 )
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Saida" to="Saida" method="_on_Saida_body_entered"]
+[connection signal="timeout" from="Botao/Timer" to="Botao" method="_on_Timer_timeout"]

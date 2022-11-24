@@ -45,7 +45,6 @@ __meta__ = {
 scale = Vector2( 0.561404, 0.533333 )
 frames = SubResource( 9 )
 animation = "walk"
-frame = 6
 playing = true
 centered = false
 
