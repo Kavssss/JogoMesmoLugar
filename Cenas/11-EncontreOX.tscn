@@ -16,7 +16,7 @@
 [ext_resource path="res://Sprites/scenario/laser_closed_1.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/scenario/background_fases.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/scenario/laser_open_5.png" type="Texture" id=16]
-[ext_resource path="res://Scripts/11-EncontreOX.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/BotaoFalso.gd" type="Script" id=17]
 [ext_resource path="res://Scripts/X.gd" type="Script" id=18]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=20]
@@ -68,7 +68,6 @@ use_filter = true
 font_data = ExtResource( 20 )
 
 [node name="11-EncontreOX" type="Node2D"]
-script = ExtResource( 17 )
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 15 )
@@ -359,6 +358,7 @@ text = "11- Encontre o X"
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
+script = ExtResource( 17 )
 
 [node name="X" type="Area2D" parent="."]
 position = Vector2( 331, 70 )

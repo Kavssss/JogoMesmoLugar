@@ -2,17 +2,17 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/porta.wav-dd8bb3172923476cb589caffcdba9838.sample"
+path="res://.import/laser_ligando.wav-f7b3f24c215e14a219d017350f307a27.sample"
 
 [deps]
 
-source_file="res://Sounds/porta.wav"
-dest_files=[ "res://.import/porta.wav-dd8bb3172923476cb589caffcdba9838.sample" ]
+source_file="res://Sounds/laser_ligando.wav"
+dest_files=[ "res://.import/laser_ligando.wav-f7b3f24c215e14a219d017350f307a27.sample" ]
 
 [params]
 
 force/8_bit=false
-force/mono=true
+force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

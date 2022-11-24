@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://Sprites/scenario/laser_closed_1.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/scenario/background_fases.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/scenario/laser_open_5.png" type="Texture" id=16]
-[ext_resource path="res://Scripts/1-Simples.gd" type="Script" id=17]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Scripts/DeadRato.gd" type="Script" id=20]
@@ -66,7 +65,6 @@ use_filter = true
 font_data = ExtResource( 19 )
 
 [node name="12-SigaORato" type="Node2D"]
-script = ExtResource( 17 )
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 15 )
@@ -324,6 +322,7 @@ position = Vector2( 1216, 288 )
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 

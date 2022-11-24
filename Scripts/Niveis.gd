@@ -12,7 +12,7 @@ func _process(delta):
 		$Laser.position = Vector2(posX[laser()], posY[laser()])
 	else:
 		get_node("Laser").hide()
-		get_node("Laser/CollisionShape2D").disabled = true
+		get_node("Laser/CollisionShape2D").set_deferred("disabled", true)
 
 func fase():
 	return get_node("/root/Global").fase

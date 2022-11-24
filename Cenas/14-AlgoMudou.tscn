@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scripts/14-AlgoMudou.gd" type="Script" id=17]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Scripts/BotaoFalso.gd" type="Script" id=20]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -337,8 +338,10 @@ text = "14- Algo mudou?"
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
+script = ExtResource( 20 )
 
 [node name="Laser" type="StaticBody2D" parent="."]
+z_index = 1
 collision_layer = 256
 collision_mask = 0
 script = ExtResource( 1 )

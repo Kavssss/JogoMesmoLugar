@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Cenas/Botao.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://Sprites/scenario/scenario.png" type="Texture" id=18]
 [ext_resource path="res://Scripts/Inimigos.gd" type="Script" id=19]
 [ext_resource path="res://Sprites/menu/inimigo.png" type="Texture" id=20]
-[ext_resource path="res://Scripts/1-Simples.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -67,7 +66,6 @@ use_filter = true
 font_data = ExtResource( 8 )
 
 [node name="20-Cuidado" type="Node2D"]
-script = ExtResource( 21 )
 
 [node name="Background" type="Sprite" parent="."]
 scale = Vector2( 0.999274, 0.9987 )
@@ -327,7 +325,6 @@ position = Vector2( 1216, 288 )
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
-frame = 1
 playing = true
 centered = false
 
