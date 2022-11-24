@@ -1,7 +1,5 @@
 extends StaticBody2D
 
-var btn = false
-
 func _ready():
 	get_node("../Laser").som()
 
@@ -14,9 +12,6 @@ func pressionado():
 func livre():
 	$Sprite.play("up")
 	$Timer.stop()
-
-func isPressed():
-	return btn
 
 func _on_Timer_timeout():
 	get_node("../Laser/Sprite").play("open")

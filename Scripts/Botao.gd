@@ -1,10 +1,5 @@
 extends StaticBody2D
 
-var btn = false
-
-func _ready():
-	get_node("../Laser").som()
-
 func pressionado():
 	$Sprite.play("down")
 	get_node("/root/Global/BotaoSom").play()
@@ -17,6 +12,3 @@ func pressionado():
 
 func livre():
 	$Sprite.play("up")
-
-func isPressed():
-	return btn

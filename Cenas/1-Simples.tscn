@@ -318,12 +318,16 @@ polygon = PoolVector2Array( 32.0001, 31.9999, 64, 48, 32, 64 )
 collision_layer = 256
 collision_mask = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="Laser"]
 position = Vector2( 1216, 288 )
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 
@@ -376,6 +380,6 @@ percent_visible = 0.0
 position = Vector2( 0, -64 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 32, 320 )
+position = Vector2( 32, 351 )
 
 [connection signal="body_entered" from="Saida" to="Saida" method="_on_Saida_body_entered"]
