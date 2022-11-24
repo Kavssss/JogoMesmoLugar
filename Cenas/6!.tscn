@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Laser.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Saida.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scripts/6!.gd" type="Script" id=17]
 [ext_resource path="res://Cenas/Botao_Dica.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Scripts/BotaoFalso.gd" type="Script" id=20]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 16 )
@@ -321,6 +322,7 @@ script = ExtResource( 1 )
 position = Vector2( 1216, 288 )
 frames = SubResource( 7 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 
@@ -354,6 +356,10 @@ text = "6 !"
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 192 )
 rotation = -6.28318
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Botao_Dica" parent="." instance=ExtResource( 18 )]
 

@@ -1,8 +1,5 @@
 extends StaticBody2D
 
-func _ready():
-	get_node("../Laser").som()
-
 func pressionado():
 	$Sprite.play("down")
 	get_node("/root/Global/BotaoSom").play()
@@ -15,6 +12,6 @@ func livre():
 
 func _on_Timer_timeout():
 	get_node("../Laser/Sprite").play("open")
-	get_node("../Laser").desativaColisao()
+	get_node("../Laser").desliga()
 	get_node("/root/Global/LaserSom").stop()
 	get_node("/root/Global/LaserDesligandoSom").play()

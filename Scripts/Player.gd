@@ -3,7 +3,6 @@ extends KinematicBody2D
 const UP = Vector2(0, -1)
 var motion = Vector2()
 var morreu = false
-var cont = 0
 
 func _ready():
 	position.x = 30
