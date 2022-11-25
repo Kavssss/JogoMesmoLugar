@@ -4,9 +4,11 @@ var botaoCreditos = false
 var laserMenu = true
 var dicas = 3
 var mortes = 0
+var pause = true
+var esc = true
 var posicao = Vector2(32, 544)
-var laser = 1
-var fase = 1
+var laser = 22
+var fase = 22
 var nomes = ["1-Simples", "2-Espere", "3-CadeOBotao", "4-Volte", "5-PrecisoDeEspaco", "6!", 
 			"7-Confusao", "8-MaisForca", "9-Lua", "10-Sozinho", "11-EncontreOX", "12-SigaORato", 
 			"13-Gravidade", "14-AlgoMudou", "15-Depressa", "16-Zoom", "17-Ventania", "18-Proxima", 
@@ -22,10 +24,11 @@ func posicao_menu(x, y):
 	posicao = Vector2(x, y)
 
 func _input(event):
-	if get_tree().get_current_scene().get_name() != "19-1" and get_tree().get_current_scene().get_name() != "Menu":
-		if Input.is_key_pressed(KEY_P): 
+	if Input.is_key_pressed(KEY_P):
+		if pause:
 			get_tree().paused = !get_tree().paused
 
 	if Input.is_action_pressed("ui_cancel"):
-		get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
-		posicao = Vector2(320, 544)
+		if esc:
+			get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
+			posicao = Vector2(320, 544)

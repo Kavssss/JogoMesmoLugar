@@ -10,4 +10,3 @@ func _input(event):
 	if $Timer.is_stopped():
 		if Input.is_action_pressed("ui_accept"):
 			get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
-			get_node("/root/Global/Backsound").play()

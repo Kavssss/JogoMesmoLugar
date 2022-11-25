@@ -1,9 +1,6 @@
 extends StaticBody2D
 
 func _ready():
-	som()
-
-func som():
 	get_node("/root/Global/LaserSom").play()
 
 func desliga():

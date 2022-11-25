@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/PortaFinal.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/menu/doorOpening2.png" type="Texture" id=2]
 [ext_resource path="res://Cenas/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cenas/Botao.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/BotaoFinal.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/Font/Montserrat-SemiBold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Sprites/menu/doorClosing3.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/menu/doorClosed1.png" type="Texture" id=8]
@@ -107,6 +108,7 @@ __meta__ = {
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
+frame = 1
 playing = true
 centered = false
 
@@ -134,6 +136,7 @@ text = "22- - .-.. .- ..."
 
 [node name="Botao" parent="." instance=ExtResource( 4 )]
 position = Vector2( 976, 416 )
+script = ExtResource( 5 )
 
 [node name="Botao_Dica" parent="." instance=ExtResource( 18 )]
 position = Vector2( 1288, 288 )

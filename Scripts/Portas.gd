@@ -4,10 +4,11 @@ var aberta = false
 var som = true
 var porta = ""
 
-func _process(delta):
+func _input(event):
 	if aberta:
 		if Input.is_action_just_released("ui_accept"):
 			som = false
+			get_node("/root/Global").esc = true
 			get_node("/root/Transition").fade_into(porta)
 
 func _on_Porta1_body_entered(body):

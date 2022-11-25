@@ -12,7 +12,7 @@ dest_files=[ "res://.import/tick.wav-0eade5b70f2bbe43e98488d3104bbf74.sample" ]
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

@@ -5,7 +5,8 @@ var posX = [0, 352, 480, 608, 736, 864, 992, 1120, 992, 864, 736, 608, 480, 352,
 var posY = [0, 64, 64, 64, 64, 64, 64, 288, 288, 288, 288, 288, 288, 288, 512, 512, 512, 
 512, 512, 512, 512, 512]
 
-func _process(delta):
+func _ready():
+	get_node("/root/Global").esc = false
 	if fase() > laser():
 		get_node("/root/Global").set("laser", fase())
 	if laser() != 22:

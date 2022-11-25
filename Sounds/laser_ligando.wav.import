@@ -12,7 +12,7 @@ dest_files=[ "res://.import/laser_ligando.wav-f7b3f24c215e14a219d017350f307a27.s
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

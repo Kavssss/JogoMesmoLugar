@@ -3,6 +3,9 @@ extends Area2D
 var aberta = false
 var som = true
 
+func _ready():
+	get_node("/root/Global").esc = false
+
 func _input(event):
 	if aberta:
 		if Input.is_action_just_pressed("ui_accept"):
