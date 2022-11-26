@@ -108,7 +108,7 @@ __meta__ = {
 scale = Vector2( 1, 0.993789 )
 frames = SubResource( 7 )
 animation = "closed"
-frame = 1
+frame = 2
 playing = true
 centered = false
 

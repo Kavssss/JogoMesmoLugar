@@ -17,3 +17,4 @@ func _on_Elevador_body_exited(body):
 
 func _on_Timer_timeout():
 	$Sprite.play("andar")
+	get_node("/root/TransitionFinal").fade_into("res://Cenas/Final.tscn")

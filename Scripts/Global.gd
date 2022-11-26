@@ -2,13 +2,14 @@ extends Node2D
 
 var botaoCreditos = false
 var laserMenu = true
+var musica = true
 var dicas = 3
 var mortes = 0
 var pause = true
 var esc = true
 var posicao = Vector2(32, 544)
-var laser = 22
-var fase = 22
+var laser = 1
+var fase = 21
 var nomes = ["1-Simples", "2-Espere", "3-CadeOBotao", "4-Volte", "5-PrecisoDeEspaco", "6!", 
 			"7-Confusao", "8-MaisForca", "9-Lua", "10-Sozinho", "11-EncontreOX", "12-SigaORato", 
 			"13-Gravidade", "14-AlgoMudou", "15-Depressa", "16-Zoom", "17-Ventania", "18-Proxima", 
@@ -18,7 +19,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func nome_fase():
-	return nomes[laser - 1]
+	return nomes[fase - 1]
 
 func posicao_menu(x, y):
 	posicao = Vector2(x, y)
