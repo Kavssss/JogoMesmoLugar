@@ -10,7 +10,10 @@ func _ready():
 	$Mortes.text = "Mortes: " + str(get_node("/root/Global").mortes)
 
 	if !get_node("/root/Global").laserMenu:
-		get_node("Laser").desliga()
+		$Laser/CollisionShape2D.set_deferred("disabled", true)
+		$Laser.visible = false
+	else:
+		get_node("/root/Global/LaserSom").play()
 
 	if !$Elevador/Timer.is_stopped():
 		yield(get_tree().create_timer(4), "timeout")

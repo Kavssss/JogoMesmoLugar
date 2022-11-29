@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 func _ready():
-	if get_tree().get_current_scene().get_name() != "21-NaoEstaAqui":
+	if get_tree().get_current_scene().get_name() != "21-NaoEstaAqui" and get_tree().get_current_scene().get_name() != "Menu":
 		get_node("/root/Global/LaserSom").play()
 
 func desliga():

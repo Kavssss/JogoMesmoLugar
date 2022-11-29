@@ -209,6 +209,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Jogar"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -228,6 +229,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Niveis"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -247,6 +249,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Creditos"]
 frames = SubResource( 1 )
 animation = "closed"
+frame = 2
 playing = true
 centered = false
 
@@ -266,7 +269,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="FaseFinal"]
 frames = SubResource( 1 )
 animation = "closed"
-frame = 2
+frame = 1
 playing = true
 centered = false
 
@@ -343,7 +346,7 @@ frames = SubResource( 12 )
 centered = false
 
 [node name="Timer" type="Timer" parent="Elevador"]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Painel" type="Area2D" parent="."]
@@ -375,7 +378,7 @@ valign = 1
 position = Vector2( 0, -64 )
 
 [node name="PlayerMenu" parent="." instance=ExtResource( 13 )]
-position = Vector2( 32, 544 )
+position = Vector2( 40, 536 )
 
 [node name="UserSenha" type="Area2D" parent="."]
 visible = false

@@ -3,7 +3,7 @@ extends Area2D
 func _ready():
 	$Label.visible_characters = 0
 
-func _process(delta):
+func _input(event):
 	if $Label.visible_characters == -1:
 		if Input.is_action_just_released("ui_accept"):
 			get_node("../UserSenha").visible = true
