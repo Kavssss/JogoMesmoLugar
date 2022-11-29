@@ -28,6 +28,12 @@ func _input(event):
 	if Input.is_key_pressed(KEY_P):
 		if pause:
 			get_tree().paused = !get_tree().paused
+			if !get_tree().paused:
+				$Backsound.volume_db /= 2
+				$LaserSom.volume_db /= 2
+			else:
+				$Backsound.volume_db *= 2
+				$LaserSom.volume_db *= 2
 
 	if Input.is_action_pressed("ui_cancel"):
 		if esc:
