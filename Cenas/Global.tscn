@@ -46,6 +46,7 @@ stream = ExtResource( 11 )
 
 [node name="Elevador" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -10.0
 
 [node name="ElevadorAndando" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )

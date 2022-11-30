@@ -35,7 +35,7 @@ func _input(event):
 				$Backsound.volume_db *= 2
 				$LaserSom.volume_db *= 2
 
-	if Input.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel"):
 		if esc:
 			get_node("/root/Transition").fade_into("res://Cenas/Menu.tscn")
 			posicao = Vector2(320, 544)
