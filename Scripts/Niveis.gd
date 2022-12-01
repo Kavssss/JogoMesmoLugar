@@ -14,6 +14,7 @@ func _ready():
 	else:
 		get_node("Laser").hide()
 		get_node("Laser/CollisionShape2D").set_deferred("disabled", true)
+		get_node("/root/Global/LaserSom").stop()
 
 func fase():
 	return get_node("/root/Global").fase

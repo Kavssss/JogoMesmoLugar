@@ -22,15 +22,15 @@ volume_db = -20.0
 
 [node name="LaserSom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -18.0
+volume_db = -25.0
 
 [node name="LaserDesligandoSom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -25.0
 
 [node name="LaserLigandoSom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -10.0
+volume_db = -25.0
 
 [node name="BotaoSom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
