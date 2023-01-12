@@ -12,7 +12,7 @@ func _process(delta):
 		if $Sprite/User.text == "iamtagir" and $Sprite/Password.text == "tlas":
 			get_node("/root/Global/Elevador").play()
 			get_node("/root/Global/ElevadorPorta").play()
-			get_node("../Elevador/Sprite").play("abrir")
+			get_node("../Elevador/Sprite").play("abrir1")
 			get_node("../Painel/Label").visible = false
 			get_node("../Painel/CollisionShape2D").disabled = true
 			get_node("../Elevador/CollisionShape2D").disabled = false

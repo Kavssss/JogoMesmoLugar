@@ -17,4 +17,4 @@ func _ready():
 
 	if !$Elevador/Timer.is_stopped():
 		yield(get_tree().create_timer(4), "timeout")
-		get_node("/root/TransitionFinal").fade_into("res://Cenas/Final.tscn")
+		get_node("/root/TransitionFinal").fade_into("res://Cenas/ParteII.tscn")

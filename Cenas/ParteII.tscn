@@ -1,26 +1,97 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://Sprites/scenario/empty.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/menu/parteII2.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/menu/parteII4.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/menu/parteII3.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/menu/parteII5.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/menu/inicial.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/menu/parteII1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/menu2/background.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/menu2/porta4.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/menu2/porta3.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/menu2/porta1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/menu2/porta5.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/menu2/porta2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/menu2/menu2.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/ParteII.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/menu/elevador_fechar3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/menu2/abrir24.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/menu2/andarTrocando.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/menu/elevador_fechar1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/menu/elevador1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/menu2/andar3.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/menu/elevador_fechar5.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/menu2/abrir22.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/menu2/abrir25.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/menu/elevador_fechar2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/menu/elevador_fechar4.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/menu2/andar2.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/scenario/empty.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/menu2/abrir21.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/menu2/abrir23.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/menu/painel_senha.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Font/Montserrat-Medium.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://Sprites/Font/iknowaghost.ttf" type="DynamicFontData" id=26]
+[ext_resource path="res://Scripts/Elevador2.gd" type="Script" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": false,
-"name": "default",
-"speed": 10.0
+"name": "closed",
+"speed": 15.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "hide",
-"speed": 5.0
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "opened",
+"speed": 15.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 22 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 10 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "abrir2",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "andar1",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "andar2",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "andar3",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "fechando_player",
+"speed": 9.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 9
+use_filter = true
+font_data = ExtResource( 25 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 28
+use_filter = true
+extra_spacing_char = 1
+extra_spacing_space = 3
+font_data = ExtResource( 26 )
 
 [node name="ParteII" type="Node2D"]
 script = ExtResource( 8 )
@@ -30,14 +101,217 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
 centered = false
 
-[node name="SpriteParteII" type="AnimatedSprite" parent="."]
-position = Vector2( 512, 416 )
-frames = SubResource( 1 )
-animation = "hide"
+[node name="Plataforms" type="StaticBody2D" parent="."]
+
+[node name="Scenario" type="Sprite" parent="Plataforms"]
+texture = ExtResource( 7 )
 centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plataforms"]
+polygon = PoolVector2Array( 544, 352, 544, 384, 512, 384, 512, 416, 480, 416, 480, 448, 448, 448, 448, 480, 416, 480, 416, 512, 0, 512, 0, 768, 1376, 768, 1312, 640, 608, 640, 608, 416, 1312, 416, 1312, 640, 1376, 768, 1376, 0, 0, 0, 0, 512, 64, 512, 64, 128, 1312, 128, 1312, 352 )
+
+[node name="Jogar" type="Area2D" parent="."]
+position = Vector2( 112, 416 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Jogar"]
+frames = SubResource( 1 )
+animation = "closed"
+frame = 4
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogar"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Niveis" type="Area2D" parent="."]
+position = Vector2( 304, 416 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Niveis"]
+frames = SubResource( 1 )
+animation = "closed"
+frame = 4
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Niveis"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Cortina" type="Area2D" parent="."]
+position = Vector2( 1136, 256 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Cortina"]
+frames = SubResource( 1 )
+animation = "closed"
+frame = 4
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cortina"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Saida" type="Area2D" parent="."]
+position = Vector2( 1136, 544 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Saida"]
+frames = SubResource( 1 )
+animation = "closed"
+frame = 4
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saida"]
+position = Vector2( 32, 80 )
+shape = SubResource( 2 )
+
+[node name="Elevador2" type="Area2D" parent="."]
+position = Vector2( 704, 224 )
+collision_layer = 128
+collision_mask = 0
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Elevador2"]
+frames = SubResource( 3 )
+animation = "andar1"
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevador2"]
+position = Vector2( 48, 112 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Sprite2" type="AnimatedSprite" parent="Elevador2"]
+z_index = 1
+frames = SubResource( 5 )
+centered = false
+
+[node name="Timer" type="Timer" parent="Elevador2"]
+wait_time = 2.5
+one_shot = true
+
+[node name="Elevador3" type="Area2D" parent="."]
+position = Vector2( 704, 512 )
+collision_layer = 128
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Elevador3"]
+frames = SubResource( 3 )
+animation = "andar1"
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevador3"]
+position = Vector2( 48, 112 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Sprite2" type="AnimatedSprite" parent="Elevador3"]
+z_index = 1
+frames = SubResource( 5 )
+centered = false
+
+[node name="Timer" type="Timer" parent="Elevador3"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Painel2" type="Area2D" parent="."]
+position = Vector2( 672, 288 )
+collision_layer = 16
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Painel2"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Painel2"]
+position = Vector2( 16, 16 )
+shape = SubResource( 6 )
+
+[node name="Label" type="Label" parent="Painel2"]
+margin_top = -16.0
+margin_right = 32.0
+custom_fonts/font = SubResource( 7 )
+text = "Enter"
+align = 1
+valign = 1
+
+[node name="Painel3" type="Area2D" parent="."]
+position = Vector2( 672, 576 )
+collision_layer = 16
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Painel3"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Painel3"]
+position = Vector2( 16, 16 )
+shape = SubResource( 6 )
+
+[node name="Label" type="Label" parent="Painel3"]
+margin_top = -16.0
+margin_right = 32.0
+custom_fonts/font = SubResource( 7 )
+text = "Enter"
+align = 1
+valign = 1
+
+[node name="Dicas_restantes" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 144.0
+margin_right = 369.0
+margin_bottom = 176.0
+text = " "
+align = 2
+
+[node name="Mortes" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 184.0
+margin_right = 369.0
+margin_bottom = 216.0
+custom_fonts/font = SubResource( 8 )
+text = " "
+align = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Elevador2/Timer" to="Elevador2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Elevador3/Timer" to="Elevador3" method="_on_Timer_timeout"]
